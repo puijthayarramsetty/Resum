@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Y. Pujitha - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.3);
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            margin: 0 auto 20px;
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            padding: 40px 30px;
+        }
+
+        .sidebar {
+            border-right: 1px solid #eee;
+            padding-right: 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #667eea;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: #764ba2;
+        }
+
+        .section h3 {
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .section p {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .experience-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .job-title {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .education-item {
+            margin-bottom: 20px;
+        }
+
+        .degree {
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .school {
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .achievements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .achievements li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+
+        .achievements li::before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+        }
+
+        .languages {
+            display: grid;
+            gap: 10px;
+        }
+
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .language-level {
+            background: #f0f0f0;
+            height: 8px;
+            border-radius: 4px;
+            flex: 1;
+            margin-left: 15px;
+            overflow: hidden;
+        }
+
+        .language-progress {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+                padding-right: 0;
+                padding-bottom: 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .name {
+                font-size: 2rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .container {
+                box-shadow: none;
+                margin: 0;
+            }
+            
+            .skill-item:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="profile-img">YP</div>
+                <h1 class="name">Y. PUJITHA</h1>
+                <p class="title">B.Tech Student - Computer Science</p>
+                <div class="contact-info">
+                    <div class="contact-item">📧 yarramsettypujitha@gmail.com</div>
+                    <div class="contact-item">📱 +91 96******91</div>
+                    <div class="contact-item">🎓 Vignan University</div>
+                    <div class="contact-item">📍 Andhra Pradesh, India</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <section class="section">
+                    <h2>Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">C Programming</div>
+                        <div class="skill-item">C++</div>
+                        <div class="skill-item">Java</div>
+                        <div class="skill-item">Python</div>
+                        <div class="skill-item">Communication</div>
+                        <div class="skill-item">Leadership</div>
+                        <div class="skill-item">Time Management</div>
+                        <div class="skill-item">Active Listening</div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>Education</h2>
+                    <div class="education-item">
+                        <div class="degree">B.Tech - 1st Year</div>
+                        <div class="school">Vignan University</div>
+                        <div class="date">2023 - Present</div>
+                        <div style="color: #667eea; font-weight: 500;">CGPA: 9.9</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="degree">Intermediate</div>
+                        <div class="school">Sri Chaitanya</div>
+                        <div class="date">2021 - 2023</div>
+                        <div style="color: #667eea; font-weight: 500;">Percentage: 88%</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="degree">10th Grade</div>
+                        <div class="school">Sri Chaitanya</div>
+                        <div class="date">2019 - 2021</div>
+                        <div style="color: #667eea; font-weight: 500;">Percentage: 99%</div>
+                    </div>
+                </section>
+
+                <section class="section languages">
+                    <h2>Languages</h2>
+                    <div class="language-item">
+                        <span>Telugu</span>
+                        <div class="language-level">
+                            <div class="language-progress" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <span>English</span>
+                        <div class="language-level">
+                            <div class="language-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <span>Hindi</span>
+                        <div class="language-level">
+                            <div class="language-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section achievements">
+                    <h2>Achievements & Certificates</h2>
+                    <ul>
+                        <li>NCC Merit Certificate</li>
+                        <li>INTSO Merit Award</li>
+                        <li>NTSE Level-1 Qualified</li>
+                    </ul>
+                </section>
+            </aside>
+
+            <main class="content">
+                <section class="section">
+                    <h2>Personal Information</h2>
+                    <p><strong>Full Name:</strong> Yarramsetty Pujitha</p>
+                    <p><strong>Date of Birth:</strong> June 15, 2005</p>
+                    <p><strong>Gender:</strong> Female</p>
+                    <p><strong>Father's Name:</strong> Yarramsetty Srinivasa Rao</p>
+                    <p><strong>Mother's Name:</strong> Yarramsetty Venkateswaramma</p>
+                </section>
+
+                <section class="section">
+                    <h2>Academic Profile</h2>
+                    <p>Currently pursuing B.Tech in Computer Science Engineering at Vignan University. First-year student with exceptional academic performance, maintaining a CGPA of 9.9. Strong foundation in programming languages including C, C++, Java, and Python.</p>
+                </section>
+
+                <section class="section">
+                    <h2>Hobbies & Interests</h2>
+                    
+                    <div class="experience-item">
+                        <h3>Reading & Learning</h3>
+                        <p>Passionate about reading books across various genres and staying updated with the latest technological advancements. Enjoy exploring new programming concepts and methodologies.</p>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Entertainment & Technology</h3>
+                        <p>Enjoy watching movies and browsing the internet to discover new trends and innovations in technology and computer science.</p>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>Additional Activities</h2>
+                    
+                    <div class="experience-item">
+                        <div class="job-title">Member - Swachh Bharat Mission</div>
+                        <p>Actively participated in cleanliness and environmental awareness campaigns as part of the Swachh Bharat initiative, contributing to community development and social responsibility.</p>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-title">Member - AISF (All India Students' Federation)</div>
+                        <p>Engaged in student welfare activities and educational advocacy programs, demonstrating leadership and commitment to student rights and academic excellence.</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
